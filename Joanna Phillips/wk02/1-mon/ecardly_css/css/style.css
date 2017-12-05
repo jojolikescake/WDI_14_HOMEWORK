@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../images/background.jpg");
+  background-repeat: repeat-x;
+  background-color: lightgrey
+
+}
+
+header{
+  text-align: center;
+}
+
+.centrecontainer {
+  float: left;
+  width: 576px;
+  display:inline-block;
+  background-color: white;
+}
+
+section img{
+  width:100%;
+}
+
+aside {
+  float:right;
+  width:252px;
+  display:inline-block;
+  background-color: white;
+}
+
+aside img{
+  text-align:center;
+}
+
+ul {
+  list-style: none;
+}
+
+.highlight{
+  color:orange;
+  text-decoration: bold;
+}
+
+footer {
+  text-align:right;
+}

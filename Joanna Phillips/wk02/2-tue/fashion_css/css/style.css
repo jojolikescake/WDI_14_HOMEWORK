@@ -1,0 +1,25 @@
+*{
+  box-sizing: border-box;
+}
+
+.container{
+  background-color: mistyrose;
+  width:80%;
+  margin:0 auto;
+}
+
+main{
+  background-color: plum;
+  width:70%;
+  display:inline-block;
+}
+
+aside {
+  background-color: cyan;
+  width:20%;
+  display:inline-block;
+}
+
+h1, h2{
+  display:inline-block;
+}
