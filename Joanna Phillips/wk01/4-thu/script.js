@@ -23,12 +23,26 @@ Sandringham: ["Southern Cross", "Richmond", "South Yarra", "Prahran","Windsor"]
 
 //run through the stations from the origin stop to the destination stop, listing how many stops there are in between
 
-var destination= "Flagstaff"
-var origin="Melbourne Central"
+var origin="Flagstaff"
+var destination= "Windsor"
 var lines = Object.getOwnPropertyNames(lineMap)
 var stations = Object.values(lineMap)
-var orgline = "Glen_Waverly"
-var destLine = "Glen_Waverly"
+var orgLine = "Glen_Waverly"
+var destLine = "Sandringham"
+
+//calculating indexes
+
+function OriginIndex() {
+lines.forEach(function(elem){
+  if (lineMap[elem].indexOf(origin)>-1){
+  return lineMap[elem].indexOf(origin)
+    }
+  })
+}
+
+
+
+var stationList = []
 
 
 
@@ -45,47 +59,111 @@ function sameLineOrDifferent (){
 
 }
 
+
+
 function isItSameLine(){
-
-  // im trying to figure out how i would determine if they were on the same line if the lines werent hardcoded? 
-  // Any ideas? 
-
+let test;
 for (const prop in lineMap){
-  console.log(lineMap[prop])
-
-  for (i=0;i<lineMap[prop].length;i++){
-    
-    }
+  if(lineMap[prop].includes(origin) && lineMap[prop].includes(destination)){
+    sameLine()
+test = 0;
   }
+}if (test!==0) {
+return differentLines()
 }
+}
+
+
 
 
 function sameLine(){
   if (lineMap[orgLine].indexOf(origin) < lineMap[destLine].indexOf(destination)){
-    GoForwards()
+    GoForwardsSameLine()
   }
 
   else {
-    GoBack()
+    GoBackSameLine()
   }
 }
  
 function differentLines(){
-console.warn('differentLines has not been coded yet')
+  if (lineMap[orgLine].indexOf('Richmond') > lineMap[orgLine].indexOf(origin)){
+
+  }
 }
 
-function GoForwards (){
-  for (i=0;)
-
-console.warn('GoForwards has not been coded yet')
+function GoForwardsSameLine (){
+  for (i=lineMap[orgLine].indexOf(origin);i<=lineMap[orgLine].indexOf(destination);i++){
+    stationList.push(lineMap[orgLine][i])
+    
+    if (i===lineMap[orgLine].indexOf(destination)){
+      PrintStationList()
+    }
+  }
 }
 
-function GoBack (){
-  console.warning('GoBack has not been coded yet')
+function GoBackSameLine (){
+for (i=lineMap[orgLine].indexOf(origin);i>=lineMap[orgLine].indexOf(destination);i--){
+  stationList.push(lineMap[orgLine][i])
+      if (i===lineMap[orgLine].indexOf(destination)){
+      PrintStationList()
+    }
 
+  }
+
+}
+
+function goForwardsTowardRichmond(){
+  for (i=lineMap[orgLine].indexOf(origin);i<=lineMap[orgLine].indexOf('Richmond');i++){
+    stationList.push(lineMap[orgLine][i])
+    
+    if (i===lineMap[orgLine].indexOf('Richmond')){
+      changeLines()
+    }
+  }
+}
+
+function goBackTowardsRichmond (){
+  for (i=lineMap[orgLine].indexOf(origin);i<=lineMap[orgLine].indexOf(Richmond);i++){
+    stationList.push(lineMap[orgLine][i])
+    
+    if (i===lineMap[orgLine].indexOf('Richmond')){
+      PrintStationList()
+    }
+  }
+}
+
+function goForwardFromRichmond(){
+  for (i=lineMap[destLine].indexOf("Richmond");i<=lineMap[destLine].indexOf(destination);i++){
+    stationList.push(lineMap[destLine][i])
+    
+    if (i===lineMap[orgLine].indexOf(destination)){
+      PrintStationList()
+    }
+  }
+}
+
+function goBackFromRichmond (){
+  for (i=lineMap[orgLine].indexOf(origin);i<=lineMap[orgLine].indexOf('Richmond');i++){
+    stationList.push(lineMap[orgLine][i])
+    
+    if (i===lineMap[orgLine].indexOf('Richmond')){
+      changeLines()
+    }
+  }
+}
+
+function changeLines (){
+  if (lineMap[destLine].indexOf(destination)> lineMap[destLine.indexOf('Richmond')]){
+    goForwardFromRichmond()
+  }
+
+  else {
+    goBackFromRichmond()
+  }
 }
 
 function PrintStationList(){
-  console.warn('PrintStationList has not been coded yet')
+ console.log(stationList.join('--->'))
 
 }
