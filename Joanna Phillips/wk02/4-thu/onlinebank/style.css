@@ -1,0 +1,35 @@
+*{
+  box-sizing: border-box;
+}
+
+.savings{
+  width:20%;
+  height:20%;
+  background-color: red;
+  text-align: center;
+  margin-right: 50px;
+}
+
+.checking {
+  width:20%;
+  height:20%;
+  background-color: yellow;
+  text-align: center;
+}
+
+header h1 {
+  text-align: center;
+}
+
+main {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+input  {
+  display:block;
+  margin:10px auto;
+  width:100%;
+}
