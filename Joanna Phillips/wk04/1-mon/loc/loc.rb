@@ -2,7 +2,7 @@ require 'pry'
 
 print "Enter filename:"
 
-filename = gets
+filename = gets().chomp()
 
 File.readlines(filename).size
 
